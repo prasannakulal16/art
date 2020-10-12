@@ -42,7 +42,17 @@ const ARTICLES = [
     date: "2010-12-31",
   },
 ];
-
+function changeorderByDate(){
+  ARTICLES.sort(function(a,b){
+    var dateA=new Date(a.date),dateB=new Date(b.date)
+    return dateB-dateA
+  })
+}
+function changeorderByUpvotes(){
+  ARTICLES.sort(function(a,b){
+    return b.upvotes-a.upvotes
+  })
+}
 ReactDOM.render(<App articles={ARTICLES} />, document.getElementById('root'));
 registerServiceWorker();
 
